@@ -42,7 +42,10 @@ public class Waypoint {
 	//finds the Waypoint of highest priority in radius r around given point in a field
 	public Waypoint findPriority(double r, WaypointList field){
 		WaypointList localList = field.pullRadius(r, this);
-		Waypoint result = localList.getPriority();
+		Waypoint result = this;
+		if (localList.size() > 0) {
+			result = localList.getPriority();
+		}
 		return result;
 	}
 }
