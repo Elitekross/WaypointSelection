@@ -30,15 +30,17 @@ public class WaypointList {
 	public Waypoint getPriority() {
 		int index = 0;
 		double maxPriority = 0;
-		Waypoint result;
-		for (int i = 0; i < this.size(); i++){
-			if (maxPriority < this.get(i).weight) {
-				index = i;
-				maxPriority = this.get(i).weight;
+		Waypoint result = new Waypoint();
+		if (this.size() > 0) {
+			for (int i = 0; i < this.size(); i++){
+				if (maxPriority < this.get(i).weight) {
+					index = i;
+					maxPriority = this.get(i).weight;
+				}
 			}
+			result = this.waypointList.get(index);
+			this.waypointList.remove(index); 
 		}
-		result = this.waypointList.get(index);
-		this.waypointList.remove(index);
 		return result;
 	}
 	
@@ -59,9 +61,13 @@ public class WaypointList {
 		else {
 			result = input.findNearest(this);
 			double radius = (Waypoint.distance(input, result) * .05);
-			result = input.findPriority(radius, this);
-			int index = this.indexOf(result);
-			this.remove(index);
+			if (this.pullRadius(radius, result).size() == 0){
+				result = this.getNearest(input);
+			} else {
+				result = result.findPriority(radius, this);
+				int index = this.indexOf(result);
+				this.remove(index);
+			}
 		}
 		return result;
 	}
