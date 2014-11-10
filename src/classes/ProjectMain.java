@@ -11,6 +11,9 @@ public class ProjectMain {
 	static WaypointList local = new WaypointList();
 	
 	public static void main(String[] args) {
+		GUI gui = new GUI();
+		gui.setVisible(true);
+		
 		Waypoint a = new Waypoint(0.0, 0.0, 0, 0);
 		Waypoint b = new Waypoint(2.0, 2.0, 0, 0);
 		

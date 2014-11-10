@@ -53,7 +53,7 @@ public class GUI extends JFrame
 
 		setTitle("MappLife");
 		Container pane = getContentPane();
-		pane.setLayout(new GridLayout(5, 2));
+		pane.setLayout(new GridLayout(4, 2));
 
 		// Grid layout requires that you add components to the content pane in
 		// the order they should appear
