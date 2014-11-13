@@ -20,13 +20,13 @@ public class GUI extends JFrame
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JLabel oneLabel, twoLabel, threeLabel;
-	private JTextField oneText, twoText, threeText;
+	private JLabel oneLabel, twoLabel, threeLabel, fourLabel;
+	private JTextField oneText, twoText, threeText, fourText;
 	private JButton calculateButton, exitButton;
 	private static final int HEIGHT = 600;
 	private static final int WIDTH = 300;
 
-	private double option1, option2, option3;
+	private double option1, option2, option3, option4;
 
 	private CalculateButtonHandler calculateButtonHandler;
 	private ExitButtonHandler exitButtonHandler;
@@ -34,12 +34,14 @@ public class GUI extends JFrame
 	public GUI()
 
 	{
-		oneLabel = new JLabel("Option 1: ", SwingConstants.CENTER);
-		twoLabel = new JLabel("Option 2: ", SwingConstants.CENTER);
-		threeLabel = new JLabel("Option 3: ", SwingConstants.CENTER);
+		oneLabel = new JLabel("X1: ", SwingConstants.CENTER);
+		twoLabel = new JLabel("Y1: ", SwingConstants.CENTER);
+		threeLabel = new JLabel("X2: ", SwingConstants.CENTER);
+		fourLabel = new JLabel("Y2: ", SwingConstants.CENTER);
 		oneText = new JTextField(12);
 		twoText = new JTextField(12);
 		threeText = new JTextField(12);
+		fourText = new JTextField(12);
 
 		// This section specifies the handlers for the buttons and adds an
 		// ActionListener.
@@ -53,7 +55,7 @@ public class GUI extends JFrame
 
 		setTitle("MappLife");
 		Container pane = getContentPane();
-		pane.setLayout(new GridLayout(4, 2));
+		pane.setLayout(new GridLayout(5, 2));
 
 		// Grid layout requires that you add components to the content pane in
 		// the order they should appear
@@ -64,12 +66,15 @@ public class GUI extends JFrame
 		pane.add(twoText);
 		pane.add(threeLabel);
 		pane.add(threeText);
+		pane.add(fourLabel);
+		pane.add(fourText);
 		pane.add(calculateButton);
 		pane.add(exitButton);
 
-		oneText.setText("1-10");
-		twoText.setText("1-10");
-		threeText.setText("1-10");
+		oneText.setText("0-10");
+//		twoText.setText("0-10");
+//		threeText.setText("0-10");
+//		fourText.setText("0-10");
 
 		setSize(HEIGHT, WIDTH);
 		setVisible(true);
@@ -80,11 +85,12 @@ public class GUI extends JFrame
 	private class CalculateButtonHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			
-			option1 = Double.parseDouble(oneText.getText()) / 10;
-			option2 = Double.parseDouble(twoText.getText()) / 10;
-			option3 = Double.parseDouble(threeText.getText()) / 10;
+			option1 = Double.parseDouble(oneText.getText());
+			option2 = Double.parseDouble(twoText.getText());
+			option3 = Double.parseDouble(threeText.getText());
+			option4 = Double.parseDouble(fourText.getText());
 
-			ProjectMain.setPoints();
+			ProjectMain.setPoints(option1, option2, option3, option4);
 			
 			
 		}
