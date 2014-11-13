@@ -26,6 +26,21 @@ public class WaypointList {
 		}
 		return result;
 	}
+	public void subtract(WaypointList input){
+		for (int i = 0; i < this.size(); i++){
+			for (int j = 0; i < input.size(); j++)
+				if(this.get(i) == input.get(j)){
+					this.remove(i);
+				}
+		}
+	}
+	public void subtract(Waypoint input){
+		for (int i = 0; i < this.size(); i++){
+			if (this.get(i) == input){
+				this.remove(i);
+			}
+		}
+	}
 	//outputs the element of the highest weight, and removes it from the list
 	public Waypoint getPriority() {
 		int index = 0;
@@ -54,20 +69,18 @@ public class WaypointList {
 	//outputs the nearest element with the highest priority, and removes it from the list. (margin of  5%)
 	public Waypoint getNearest(Waypoint input, boolean flag){
 		Waypoint result = input;
-		WaypointList field = this;
 		if(!flag){
 			result = this.getNearest(input);
 		}
 		else {
 			result = input.findNearest(this);
-			double radius = (Waypoint.distance(input, result) * .05);
-			if (this.pullRadius(radius, result).size() == 0){
-				result = this.getNearest(input);
-			} else {
-				result = result.findPriority(radius, this);
-				int index = this.indexOf(result);
-				this.remove(index);
-			}
+			double radius = Waypoint.distance(input, result);
+			double radiusMargin = (Waypoint.distance(input, result) * .05);
+			WaypointList Margin = this.pullRadius(radius + radiusMargin, input);
+			Margin.subtract(this.pullRadius(radiusMargin - radiusMargin, input));
+			result = Margin.getPriority();
+			int index = this.indexOf(result);
+			this.remove(index);
 		}
 		return result;
 	}
@@ -81,6 +94,11 @@ public class WaypointList {
 	}
 	public void add(int index, Waypoint a){
 		this.waypointList.add(index, a);
+	}
+	public void add(WaypointList input){
+		for (int i = 0; i < input.size(); i++){
+			this.add(input.get(i));
+		}
 	}
 	public Waypoint get(int index){
 		return this.waypointList.get(index);
@@ -98,10 +116,30 @@ public class WaypointList {
 	//find the length along the points in a WaypointList
 	public double lengthAlong(){
 		double length = 0.0;
-		for (int i = 1; i < this.waypointList.size(); i++) {
-			length += Waypoint.distance(this.waypointList.get(i), this.waypointList.get(i - 1));
+		for (int i = 1; i < this.size(); i++) {
+			length += Waypoint.distance(this.get(i), this.get(i - 1));
 		}
 		return length;
+	}
+	public double lengthAlong(boolean flag){
+		double length = 0.0;
+		if(flag){
+			for (int i = 1; i < this.size(); i++) {
+				double distance = Waypoint.distance(this.get(i), this.get(i - 1));
+				distance = distance / this.get(i).weight;
+				length += distance;
+			}
+		} else {
+			this.lengthAlong();
+		}
+		return length;
+	}
+	public WaypointList sublist(int start, int end){
+		WaypointList result = new WaypointList();
+		for (int i = start; i <= end; i++){
+			result.add(this.get(i));
+		}
+		return result;
 	}
 	//display all waypoints in the WaypointList
 	public void display(){
@@ -115,5 +153,18 @@ public class WaypointList {
 	}
 	public WaypointList() {
 		waypointList = new ArrayList<Waypoint>();
+	}
+	public WaypointList(Waypoint... list){
+		for (Waypoint each : list){
+			waypointList.add(each);
+		}
+	}
+	public WaypointList(String a, int size){
+		waypointList = new ArrayList<Waypoint>();
+		if (a.equals("Random")) {
+			for (int i = 0; i < size; i++){
+				waypointList.add(new Waypoint("Random"));
+			}
+		}
 	}
 }

@@ -1,0 +1,2 @@
+INDEX VERSION 1.126+C:\Users\Meyer\Documents\GitHub\WaypointSelection\.metadata\.plugins\org.eclipse.jdt.core
+453256089.index

@@ -7,7 +7,7 @@ public class Waypoint {
 	double weight;
 	//standard euclidean distance
 	public static double distance(Waypoint a, Waypoint b){
-		double distance = Math.sqrt((a.lat - b.lat)*(a.lat-b.lat) + (a.lng - b.lng)*(a.lng-b.lng));
+		double distance = Math.sqrt(((a.lat - b.lat)*(a.lat-b.lat)) + ((a.lng - b.lng)*(a.lng-b.lng)));
 		return distance;
 	}
 	
@@ -21,7 +21,19 @@ public class Waypoint {
 		lat = 0;
 		lng = 0;
 		type = 0;
-		weight = 0;
+		weight = 1;
+	}
+	public Waypoint(String a){
+		if (a.equals("Random")) {
+			lat = (int)(Math.random() * 10);
+			lng = (int)(Math.random() * 10);
+			type = (int)(Math.random() * 4);
+			weight = Math.random();
+			if (weight == 0){
+				type = 0;
+				weight = 1;
+			}
+		}
 	}
 	//displays the information in a waypoint
 	public void display(){
