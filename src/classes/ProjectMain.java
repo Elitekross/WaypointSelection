@@ -1,6 +1,5 @@
 package classes;
 
-import java.util.ArrayList;
 
 public class ProjectMain {
 
@@ -10,7 +9,8 @@ public class ProjectMain {
 	//Version 0.3
 	static WaypointList local = new WaypointList();
 	
-	public static void main(String[] args) {
+	public static void setPoints(){
+		
 		Waypoint a = new Waypoint(0.0, 0.0, 0, 0);
 		Waypoint b = new Waypoint(2.0, 2.0, 0, 0);
 		
