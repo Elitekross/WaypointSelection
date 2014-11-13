@@ -79,11 +79,14 @@ public class GUI extends JFrame
 
 	private class CalculateButtonHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-
+			
 			option1 = Double.parseDouble(oneText.getText()) / 10;
 			option2 = Double.parseDouble(twoText.getText()) / 10;
 			option3 = Double.parseDouble(threeText.getText()) / 10;
 
+			ProjectMain.setPoints();
+			
+			
 		}
 
 	}
@@ -95,10 +98,6 @@ public class GUI extends JFrame
 		}
 	}
 
-	public static void main(String[] args) {
-		@SuppressWarnings("unused")
-		GUI mappObj = new GUI();
-	}
 
 	public double get1() {
 		return option1;
