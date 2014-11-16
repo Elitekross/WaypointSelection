@@ -10,6 +10,5 @@ public class WaypointViewer {
 		GUI gui = new GUI();
 		gui.setVisible(true);
 
-	
 	}
 }

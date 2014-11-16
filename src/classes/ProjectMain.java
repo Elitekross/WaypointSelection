@@ -1,5 +1,7 @@
 package classes;
 
+import javax.swing.JFrame;
+
 public class ProjectMain {
 
 	/**
@@ -31,7 +33,18 @@ public class ProjectMain {
 				new Waypoint(c, d, 0, 1));
 		System.out.println("Distance: " + route.lengthAlong());
 		System.out.println("Weighted Distance: " + route.lengthAlong(true));
+		PaintGraph.ref = route;
 		route.display();
+		
+		JFrame frame = new JFrame();
+	    frame.getContentPane().add(new PaintGraph());
+	    
+	    
+
+	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame.setSize(600,600);
+	    frame.setVisible(true);
+		
 		System.out.println();
 		shortenRoute(route);
 		System.out.println("Distance: " + route.lengthAlong());
