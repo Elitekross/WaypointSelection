@@ -74,10 +74,7 @@ public class GUI extends JFrame
 		pane.add(calculateButton);
 		pane.add(exitButton);
 
-//		oneText.setText("0-10");
-//		twoText.setText("0-10");
-//		threeText.setText("0-10");
-//		fourText.setText("0-10");
+
 
 		setSize(HEIGHT, WIDTH);
 		setVisible(true);

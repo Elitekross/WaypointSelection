@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
@@ -30,15 +29,7 @@ public class PaintGraph extends JPanel {
 		}
 
 		g2d.setStroke(new BasicStroke(1.5f));
-		// for (int i = 0; i <= getSize().width; i += 300)
-		// {
-		// g2.drawLine(i, 0, i, getSize().height);
-		// }
-		//
-		// for (int i = 0; i <= getSize().height; i += 300)
-		// {
-		// g2.drawLine(0,i, getSize().width, i);
-		// }
+	
 
 		// For Long Path
 		int[] xs = { 100, 200, 300, 400, 500, 400, 200 };
@@ -53,10 +44,7 @@ public class PaintGraph extends JPanel {
 			ys[i] = (int) ref.get(i).lng * 50;
 		}
 
-		// for (int i = 0; i < ref.size(); i++) {
-		// ws[i] = (int) ref.get(i).weight * 13;
-		// }
-
+	
 		g.setColor(Color.BLACK);
 		g.fillOval(xs[0] - (ws[0] / 2), ys[0] - (ws[0] / 2), ws[0], ws[0]);
 		g.setColor(Color.WHITE);
@@ -83,9 +71,7 @@ public class PaintGraph extends JPanel {
 			ys2[i] = (int) ref2.get(i).lng * 50;
 		}
 
-		// for (int i = 0; i < ref2.size(); i ++){
-		// ws2[i] = (int) ref2.get(i).weight*13;
-		// }
+	
 
 		g.setColor(Color.ORANGE);
 		for (int i = 1; i < ref2.size() - 1; i++) {
@@ -95,30 +81,9 @@ public class PaintGraph extends JPanel {
 		g.setColor(Color.BLUE);
 		g.drawPolyline(xs2, ys2, ref2.size());
 
-		// for (int i = 0; i < ref2.size(); i ++){
-		// for (int j = 0; j<ref.size(); j ++){
-		// if (xs[j] == xs2[i] && ys[j] == ys2[i]){
-		// g.setColor(Color.MAGENTA);
-		// g.fillOval(xs2[i]-3, ys2[i]-3, 8, 8);
-		// }
-		// }
-		// }
 
-		// PutImageOnJFrame c = new PutImageOnJFrame();
-		//
-		// this.add(c);
-		// Image a = Toolkit.getDefaultToolkit().getImage("yosemite.jpg");
-		// g.drawImage(a,0,0,getSize().width,getSize().height, this);
-		// super.paint(g);
 
 	}
 	
-//	 public static void main(String[] args) {
-//	 JFrame frame = new JFrame();
-//	 frame.getContentPane().add(new PaintGraph());
-//	
-//	 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//	 frame.setSize(600,600);
-//	 frame.setVisible(true);
-//	 }
+
 }

@@ -11,22 +11,7 @@ public class ProjectMain {
 	static WaypointList local = new WaypointList();
 
 	public static void setPoints(double a, double b, double c, double d) {
-		/*
-		 * Waypoint a = new Waypoint(0.0, 0.0, 0, 1); Waypoint b = new
-		 * Waypoint(2.0, 1.0, 0, 1);
-		 * 
-		 * Waypoint a0 = new Waypoint(0, 0, 0, 1); Waypoint a1 = new Waypoint(1,
-		 * 0.5, 0, 1); Waypoint a2 = new Waypoint(2.5, 0, 0, .5); Waypoint b0 =
-		 * new Waypoint(0, 1, 0, 1); Waypoint b1 = new Waypoint(1.75, 1, 0, .5);
-		 * Waypoint b2 = new Waypoint(2, 1.2, 0, .33); Waypoint c0 = new
-		 * Waypoint(0, 2.2, 0, .5); Waypoint c1 = new Waypoint(1, 2, 0, .33);
-		 * Waypoint c2 = new Waypoint(2, 2, 0, 1);
-		 * 
-		 * 
-		 * local.add(a0); local.add(b0); local.add(c0); local.add(a1);
-		 * local.add(b1); local.add(c1); local.add(a2); local.add(b2);
-		 * local.add(c2);
-		 */
+
 
 		local = new WaypointList("Random", 30);
 		WaypointList route = createRoute(local, 2, new Waypoint(a, b, 0, 0),
