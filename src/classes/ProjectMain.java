@@ -34,32 +34,30 @@ public class ProjectMain {
 		System.out.println("Distance: " + route.lengthAlong());
 		System.out.println("Weighted Distance: " + route.lengthAlong(true));
 		WaypointList route2 = new WaypointList();
-		for (int i = 0; i < route.size(); i ++){
-			route2.add(i,route.get(i));	
+		// make deep copy or else yuck
+		for (int i = 0; i < route.size(); i++) {
+			route2.add(i, route.get(i));
 		}
-		PaintGraph.ref = route2;
-		
+		PaintGraph.ref = route2; // long route
+
 		route.display();
-		
-		
-	
-		
+
 		System.out.println();
 		shortenRoute(route);
 		System.out.println("Distance: " + route.lengthAlong());
 		System.out.println("Weighted Distance: " + route.lengthAlong(true));
-		PaintGraph.ref2 = route;
+		PaintGraph.ref2 = route; // short route
 		route.display();
-		
-		JFrame frame = new JFrame();
-	    frame.getContentPane().add(new PaintGraph());
-	   
 
-	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    frame.setSize(600,600);
-	    frame.setVisible(true);
+		JFrame frame = new JFrame();
+		frame.getContentPane().add(new PaintGraph());
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(601, 601);
+		frame.setVisible(true);
+
 		
-		
+
 	}
 
 	public static WaypointList createRoute(WaypointList field, int type,

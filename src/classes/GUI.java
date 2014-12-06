@@ -1,6 +1,7 @@
 package classes;
 
 import java.awt.Container;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,6 +28,8 @@ public class GUI extends JFrame
 	private static final int WIDTH = 300;
 
 	private double option1, option2, option3, option4;
+	
+	
 
 	private CalculateButtonHandler calculateButtonHandler;
 	private ExitButtonHandler exitButtonHandler;
@@ -79,7 +82,7 @@ public class GUI extends JFrame
 		setSize(HEIGHT, WIDTH);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
+		
 	}
 
 	private class CalculateButtonHandler implements ActionListener {
