@@ -1,6 +1,5 @@
 package classes;
 
-import javax.swing.JFrame;
 
 public class ProjectMain {
 
@@ -34,12 +33,8 @@ public class ProjectMain {
 		PaintGraph.ref2 = route; // short route
 		route.display();
 
-		JFrame frame = new JFrame();
-		frame.getContentPane().add(new PaintGraph());
-
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(601, 601);
-		frame.setVisible(true);
+		WaypointViewer.graph.revalidate();
+		WaypointViewer.graph.repaint();
 
 		
 

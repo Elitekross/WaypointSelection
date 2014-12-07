@@ -21,13 +21,13 @@ public class GUI extends JFrame
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JLabel oneLabel, twoLabel, threeLabel, fourLabel;
-	private JTextField oneText, twoText, threeText, fourText;
+	private JLabel oneLabel, twoLabel, threeLabel, fourLabel, fiveLabel;
+	private JTextField oneText, twoText, threeText, fourText, fiveText;
 	private JButton calculateButton, exitButton;
 	private static final int HEIGHT = 600;
 	private static final int WIDTH = 300;
 
-	private double option1, option2, option3, option4;
+	private double option1, option2, option3, option4, option5;
 	
 	
 
@@ -41,10 +41,12 @@ public class GUI extends JFrame
 		twoLabel = new JLabel("Y1: ", SwingConstants.CENTER);
 		threeLabel = new JLabel("X2: ", SwingConstants.CENTER);
 		fourLabel = new JLabel("Y2: ", SwingConstants.CENTER);
+		fiveLabel = new JLabel("Type: ", SwingConstants.CENTER);
 		oneText = new JTextField(12);
 		twoText = new JTextField(12);
 		threeText = new JTextField(12);
 		fourText = new JTextField(12);
+		fiveText = new JTextField(12);
 
 		// This section specifies the handlers for the buttons and adds an
 		// ActionListener.
@@ -58,7 +60,7 @@ public class GUI extends JFrame
 
 		setTitle("MappLife");
 		Container pane = getContentPane();
-		pane.setLayout(new GridLayout(5, 2));
+		pane.setLayout(new GridLayout(6, 2));
 
 		// Grid layout requires that you add components to the content pane in
 		// the order they should appear
@@ -71,6 +73,8 @@ public class GUI extends JFrame
 		pane.add(threeText);
 		pane.add(fourLabel);
 		pane.add(fourText);
+		pane.add(fiveLabel);
+		pane.add(fiveText);
 		pane.add(calculateButton);
 		pane.add(exitButton);
 
