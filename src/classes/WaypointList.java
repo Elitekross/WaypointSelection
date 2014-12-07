@@ -157,12 +157,30 @@ public class WaypointList {
 		}
 		return result;
 	}
+	public void reverse(){
+		WaypointList cycle = new WaypointList();
+		while(this.size() != 0){
+			cycle.add(0, this.get(0));
+			this.remove(0);
+		}
+		for(int i = 0; i < cycle.size(); i ++){
+			this.add(cycle.get(i));
+		}
+	}
 
 	// display all waypoints in the WaypointList
 	public void display() {
 		for (int i = 0; i < this.waypointList.size(); i++) {
 			this.waypointList.get(i).display();
 		}
+	}
+	
+	public WaypointList clone(){
+		WaypointList result = new WaypointList();
+		for(int i = 0; i < this.size(); i++){
+			result.add(this.get(i).clone());
+		}
+		return result;
 	}
 
 	public WaypointList(ArrayList<Waypoint> input) {

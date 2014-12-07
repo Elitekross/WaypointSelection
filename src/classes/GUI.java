@@ -27,7 +27,8 @@ public class GUI extends JFrame
 	private static final int HEIGHT = 600;
 	private static final int WIDTH = 300;
 
-	private double option1, option2, option3, option4, option5;
+	private double option1, option2, option3, option4;
+	private int option5;
 	
 	
 
@@ -93,8 +94,9 @@ public class GUI extends JFrame
 			option2 = Double.parseDouble(twoText.getText());
 			option3 = Double.parseDouble(threeText.getText());
 			option4 = Double.parseDouble(fourText.getText());
+			option5 = Integer.parseInt(fiveText.getText());
 
-			ProjectMain.setPoints(option1, option2, option3, option4);
+			ProjectMain.setPoints(option1*100 +100, option2*100 +100, option3*100 +100, option4*100 +100, option5);
 			
 			
 		}

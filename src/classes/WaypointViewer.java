@@ -13,6 +13,7 @@ public class WaypointViewer {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		ProjectMain.init();
 		GUI gui = new GUI();
 		gui.setVisible(true);
 
