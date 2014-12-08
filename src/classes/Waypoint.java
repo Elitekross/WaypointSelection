@@ -6,6 +6,24 @@ public class Waypoint {
 	int type;
 	double weight;
 
+
+	
+	
+	public Waypoint clone(){
+		Waypoint result = new Waypoint();
+		result.lat = this.lat;
+		result.lng = this.lng;
+		result.type = this.type;
+		result.weight = this.weight;
+		return result;
+	}
+	public boolean equals(Waypoint a){
+		if(this.lat == a.lat && this.lng == a.lng){
+			return true;
+		} else {
+			return false;
+		}
+	}
 	// standard euclidean distance
 	public static double distance(Waypoint a, Waypoint b) {
 		double distance = Math.sqrt(((a.lat - b.lat) * (a.lat - b.lat))
@@ -35,7 +53,6 @@ public class Waypoint {
 			weight = Math.random();
 			if (weight == 0) {
 				type = 0;
-				weight = 1;
 			}
 		}
 	}
