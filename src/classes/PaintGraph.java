@@ -87,6 +87,7 @@ public class PaintGraph extends JPanel {
 				// g.fillOval(xs[i] - (ws[i] / 2), ys[i] - (ws[i] / 2), ws[i],
 				// ws[i]);
 			}
+			g2d.setStroke(new BasicStroke(3));
 			g.setColor(Color.RED);
 			g.drawPolyline(xs, ys, ref.size());
 
@@ -112,8 +113,13 @@ public class PaintGraph extends JPanel {
 				// g.fillOval(xs2[i] - (ws2[i] / 2), ys2[i] - (ws2[i] / 2),
 				// ws2[i], ws2[i]);
 			}
+			
+			
+
 			g.setColor(Color.BLUE);
 			g.drawPolyline(xs2, ys2, ref2.size());
+			
+			g2d.dispose();
 		}
 	}
 

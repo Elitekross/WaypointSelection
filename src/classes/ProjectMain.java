@@ -55,7 +55,7 @@ public class ProjectMain {
 		System.out.println("Distance: " + PaintGraph.ref2.lengthAlong());
 		System.out.println("Weighted Distance: " + PaintGraph.ref2.lengthAlong(true));
 		PaintGraph.ref2.display();
-		
+
 		WaypointViewer.graph.revalidate();
 		WaypointViewer.graph.repaint();
 	}
